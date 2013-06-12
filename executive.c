@@ -11,12 +11,15 @@
 
 // absolute time to jump in the next frame
 struct timespec abstime;
-// absolute time to jump in exhausted slack time
-struct timespec sp_abstime;
 // how log waiting for the next frame
 long long time2wait;
+
+#ifdef SLACK_STEALING
+// absolute time to jump in exhausted slack time
+struct timespec sp_abstime;
 // how long waiting for the finish of slack time in this frame
 long long slacktime2wait;
+#endif
 
 static pthread_cond_t efb_cond = PTHREAD_COND_INITIALIZER;
 static pthread_mutex_t efb_mutex = PTHREAD_MUTEX_INITIALIZER;
@@ -196,17 +199,19 @@ void *executive(/*...*/){
     abstime.tv_sec  += ( abstime.tv_nsec + time2wait ) / 1000000000;
     abstime.tv_nsec  = ( abstime.tv_nsec + time2wait ) % 1000000000;
 
-    // if sp thread is READY
+#ifdef SLACK_STEALING
+    // if sp thread is not IDLE
     if(excstate_get_state(&executive_sp_frame_desc.excstate) != IDLE){
-       // TODO compute next timeout: end of slack time available (nsec)
+       // compute next timeout: end of slack time available (nsec)
        slacktime2wait = SLACK[index] * EXECUTIVE_QUANT * 1000000;
-       // TODO set HIGH priority for sp thread
+       // set HIGH priority for sp thread
        struct sched_param param;
        param.sched_priority = sched_get_priority_max(SCHED_FIFO) - 2;
        pthread_setschedparam(executive_sp_frame_desc.pchild, SCHED_FIFO, &param);
        printf("[SP] [SET PRIORITY %d] [HIGH]\n", param.sched_priority);
     // endif
     }
+#endif
 
     // wakeup next frame
     printf("[FRAME %d] [PENDING]!\n", index);
@@ -218,20 +223,22 @@ void *executive(/*...*/){
       excstate_set_state(&executive_sp_frame_desc.excstate, PENDING);
     }
     
+#ifdef SLACK_STEALING
     // if sp thread is WORKING
     int state = excstate_get_state(&executive_sp_frame_desc.excstate);
-    if(state != IDLE){//state == PENDING || state == WORKING || state == READY || state == COMPLETED){
-       // TODO wait slack time
+    if(state != IDLE){
+       // wait slack time
        sp_abstime.tv_sec  += ( abstime.tv_nsec + slacktime2wait ) / 1000000000;
        sp_abstime.tv_nsec  = ( abstime.tv_nsec + slacktime2wait ) % 1000000000;
        pthread_cond_timedwait(&efb_cond, &efb_mutex, &sp_abstime);
-       // TODO set LOW priority for sp thread
+       // set LOW priority for sp thread
        struct sched_param param;
        param.sched_priority = sched_get_priority_max(SCHED_FIFO) - NUM_FRAMES - 3;
        pthread_setschedparam(executive_sp_frame_desc.pchild, SCHED_FIFO, &param);
        printf("[SP] [SET PRIORITY %d] [LOW]\n", param.sched_priority);
     // endif
     }
+#endif
 
     // wait frame finish to compute
     pthread_cond_timedwait(&efb_cond, &efb_mutex, &abstime);
@@ -269,7 +276,7 @@ void executive_new_pthread_attr(pthread_attr_t *attr, int priority){
 
   // set priority
   struct sched_param p;
-  p.sched_priority = priority; //sched_get_priority_max(SCHED_FIFO) - i - 1;
+  p.sched_priority = priority; 
   // set scheduler Sched Param
   if(pthread_attr_setschedparam(attr, &p)){
     perror("error init attr - set param\n");
@@ -280,6 +287,7 @@ void executive_new_pthread_attr(pthread_attr_t *attr, int priority){
 void executive_init(){
   // task init
   task_init();
+
   // init frame
   executive_init_frame();
 
@@ -290,13 +298,13 @@ void executive_init(){
   excstate_init(&executive_sp_count_frame, 0);
 
   // init tasks descriptor
-  frame_descs = (frame_descriptor *)malloc(sizeof(frame_descriptor) * NUM_FRAMES);//NewList();
+  frame_descs = (frame_descriptor *)malloc(sizeof(frame_descriptor) * NUM_FRAMES);
 
-  // Init pthreads
+  // [INIT PTHREADS]
   int i = 1;
   for(i=0; i<NUM_FRAMES; i++){
     // [new task descriptor]
-    frame_descriptor *fd = &frame_descs[i];// = (frame_descriptor *)malloc(sizeof(frame_descriptor));
+    frame_descriptor *fd = &frame_descs[i];
 
     // [init excstate]
     excstate_init(&fd->excstate, IDLE);
@@ -313,7 +321,7 @@ void executive_init(){
     pthread_create( &fd->pchild, &attr, frame_handler, &fd->index);
   }
 
-  // [init sporadic thread]
+  // [INIT SPORADIC THREAD]
 
   // init sporadic thread state
   excstate_init(&executive_sp_frame_desc.excstate, IDLE);
