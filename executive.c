@@ -186,6 +186,11 @@ void *executive(/*...*/){
     abstime.tv_sec  += ( abstime.tv_nsec + time2wait ) / 1000000000;
     abstime.tv_nsec  = ( abstime.tv_nsec + time2wait ) % 1000000000;
 
+    // if sp thread is WORKING
+       // TODO compute next timeout: end of slack time available
+       // TODO set HIGH priority for sp thread
+    // endif
+
     // wakeup next frame
     printf("[FRAME %d] [PENDING]!\n", index);
     excstate_set_state(&frame_descs[index].excstate, PENDING);
@@ -200,6 +205,11 @@ void *executive(/*...*/){
     //executive_wait_next_frame();
     pthread_cond_timedwait(&efb_cond, &efb_mutex, &abstime);
     printf("------[END FRAME]------ wait %lld nsec - next %lld sec %li nsec\n\n", time2wait, (long long)abstime.tv_sec, abstime.tv_nsec); 
+
+    // if sp thread is WORKING
+      // wait slack time
+      // set LOW priority for sp thread
+    // endif
 
     // check deadline of the frame
     executive_check_deadline_frame(index);
@@ -267,7 +277,7 @@ void executive_init(){
 
     // [set attr]
     pthread_attr_t attr;
-    executive_new_pthread_attr(&attr, sched_get_priority_max(SCHED_FIFO) - i - 1);
+    executive_new_pthread_attr(&attr, sched_get_priority_max(SCHED_FIFO) - i - 2);
 
     // set index
     fd->index = i;
@@ -282,9 +292,9 @@ void executive_init(){
   excstate_init(&executive_sp_frame_desc.excstate, IDLE);
 
   // set attr thread sp task handler
-  printf("[SP] [TASK INIT] priority %d\n", sched_get_priority_max(SCHED_FIFO) - i - 1);
+  printf("[SP] [TASK INIT] priority %d\n", sched_get_priority_max(SCHED_FIFO) - i - 2);
   pthread_attr_t attr_sp;
-  executive_new_pthread_attr(&attr_sp, sched_get_priority_max(SCHED_FIFO) - i - 1);
+  executive_new_pthread_attr(&attr_sp, sched_get_priority_max(SCHED_FIFO) - i - 2);
 
   // create task
   pthread_create(&executive_sp_frame_desc.pchild, &attr_sp, &sp_task_handler, NULL);
