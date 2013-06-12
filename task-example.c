@@ -162,7 +162,7 @@ void busy_calib()
    {
    /* Custom Code */
      printf("hello task 0!\n");// [%d]\n", (unsigned int)(EXECUTIVE_QUANT * 0.9));
-     busy_wait(EXECUTIVE_QUANT * 9);
+     busy_wait(EXECUTIVE_QUANT * 0.9);
    }
 
   void task1_code()

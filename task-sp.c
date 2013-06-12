@@ -198,5 +198,5 @@ int task_index = 0;
    {
    /* Custom Code */
      printf("hello task sp!\n");
-     busy_wait(H_PERIOD / NUM_FRAMES * EXECUTIVE_QUANT * 1.1);
+     busy_wait(H_PERIOD / NUM_FRAMES * EXECUTIVE_QUANT * 0.1);
    }

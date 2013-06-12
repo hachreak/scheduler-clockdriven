@@ -9,8 +9,14 @@
 #include "executive.h"
 #include "excstate.h"
 
+// absolute time to jump in the next frame
 struct timespec abstime;
+// absolute time to jump in exhausted slack time
+struct timespec sp_abstime;
+// how log waiting for the next frame
 long long time2wait;
+// how long waiting for the finish of slack time in this frame
+long long slacktime2wait;
 
 static pthread_cond_t efb_cond = PTHREAD_COND_INITIALIZER;
 static pthread_mutex_t efb_mutex = PTHREAD_MUTEX_INITIALIZER;
@@ -32,7 +38,8 @@ frame_descriptor executive_exec_desc;
 
 void executive_check_deadline_frame(int index){
   printf("[FRAME %d] [DEADLINE CHECK]\n", index);
-  if(excstate_get_state(&frame_descs[index].excstate) == WORKING){
+  int state = excstate_get_state(&frame_descs[index].excstate);
+  if(state == WORKING || state == PENDING){
     int task = excstate_get_state(&frame_descs[index].task_in_execution);
     printf("[FRAME %d] [DEADLINE MISS] [TASK %d]!\n", index, task);
     exit(1);
@@ -128,8 +135,9 @@ void *frame_handler(void *arg){
 void executive_sp_check_deadline(){
   // update counter of frame to wait
   int state = excstate_get_state(&executive_sp_frame_desc.excstate);
+  //printf("[SP] [STATE %d] %d %d %d %d %d\n", state, IDLE, WORKING, PENDING, READY, COMPLETED);
 
-  if(state != IDLE){
+  if(state == WORKING || state == COMPLETED){
     //get which frame we are executing
     int frames = excstate_get_state(&executive_sp_count_frame);
     // set how many frame to wait before test deadline of sp task
@@ -139,7 +147,7 @@ void executive_sp_check_deadline(){
     // test if execute should check deadline of sp task
     if(frames < 0){
       printf("[SP] [DEADLINE CHECK]\n");
-      if(state == WORKING){
+      if(state == WORKING || state == PENDING){
         printf("[SP] [ERROR] SP not respect deadline!\n");
         exit(1);
       }
@@ -152,8 +160,10 @@ void executive_sp_check_deadline(){
 
 void *sp_task_handler(){
   while(1){
-    // set state COMPLETED
-    excstate_set_state(&executive_sp_frame_desc.excstate, COMPLETED);
+    if(excstate_get_state(&executive_sp_frame_desc.excstate) == WORKING){
+      // set state COMPLETED
+      excstate_set_state(&executive_sp_frame_desc.excstate, COMPLETED);
+    }
 
     // wait activation (PENDING) from executer
     excstate_wait_running(&executive_sp_frame_desc.excstate);
@@ -186,10 +196,17 @@ void *executive(/*...*/){
     abstime.tv_sec  += ( abstime.tv_nsec + time2wait ) / 1000000000;
     abstime.tv_nsec  = ( abstime.tv_nsec + time2wait ) % 1000000000;
 
-    // if sp thread is WORKING
-       // TODO compute next timeout: end of slack time available
+    // if sp thread is READY
+    if(excstate_get_state(&executive_sp_frame_desc.excstate) != IDLE){
+       // TODO compute next timeout: end of slack time available (nsec)
+       slacktime2wait = SLACK[index] * EXECUTIVE_QUANT * 1000000;
        // TODO set HIGH priority for sp thread
+       struct sched_param param;
+       param.sched_priority = sched_get_priority_max(SCHED_FIFO) - 2;
+       pthread_setschedparam(executive_sp_frame_desc.pchild, SCHED_FIFO, &param);
+       printf("[SP] [SET PRIORITY %d] [HIGH]\n", param.sched_priority);
     // endif
+    }
 
     // wakeup next frame
     printf("[FRAME %d] [PENDING]!\n", index);
@@ -201,15 +218,24 @@ void *executive(/*...*/){
       excstate_set_state(&executive_sp_frame_desc.excstate, PENDING);
     }
     
+    // if sp thread is WORKING
+    int state = excstate_get_state(&executive_sp_frame_desc.excstate);
+    if(state != IDLE){//state == PENDING || state == WORKING || state == READY || state == COMPLETED){
+       // TODO wait slack time
+       sp_abstime.tv_sec  += ( abstime.tv_nsec + slacktime2wait ) / 1000000000;
+       sp_abstime.tv_nsec  = ( abstime.tv_nsec + slacktime2wait ) % 1000000000;
+       pthread_cond_timedwait(&efb_cond, &efb_mutex, &sp_abstime);
+       // TODO set LOW priority for sp thread
+       struct sched_param param;
+       param.sched_priority = sched_get_priority_max(SCHED_FIFO) - NUM_FRAMES - 3;
+       pthread_setschedparam(executive_sp_frame_desc.pchild, SCHED_FIFO, &param);
+       printf("[SP] [SET PRIORITY %d] [LOW]\n", param.sched_priority);
+    // endif
+    }
+
     // wait frame finish to compute
-    //executive_wait_next_frame();
     pthread_cond_timedwait(&efb_cond, &efb_mutex, &abstime);
     printf("------[END FRAME]------ wait %lld nsec - next %lld sec %li nsec\n\n", time2wait, (long long)abstime.tv_sec, abstime.tv_nsec); 
-
-    // if sp thread is WORKING
-      // wait slack time
-      // set LOW priority for sp thread
-    // endif
 
     // check deadline of the frame
     executive_check_deadline_frame(index);
@@ -277,7 +303,8 @@ void executive_init(){
 
     // [set attr]
     pthread_attr_t attr;
-    executive_new_pthread_attr(&attr, sched_get_priority_max(SCHED_FIFO) - i - 2);
+    executive_new_pthread_attr(&attr, sched_get_priority_max(SCHED_FIFO) - i - 3);
+    printf("[FRAME %d] [TASK INIT] priority %d\n", i, sched_get_priority_max(SCHED_FIFO) - i - 3);
 
     // set index
     fd->index = i;
@@ -292,9 +319,9 @@ void executive_init(){
   excstate_init(&executive_sp_frame_desc.excstate, IDLE);
 
   // set attr thread sp task handler
-  printf("[SP] [TASK INIT] priority %d\n", sched_get_priority_max(SCHED_FIFO) - i - 2);
+  printf("[SP] [TASK INIT] priority %d\n", sched_get_priority_max(SCHED_FIFO) - i - 3);
   pthread_attr_t attr_sp;
-  executive_new_pthread_attr(&attr_sp, sched_get_priority_max(SCHED_FIFO) - i - 2);
+  executive_new_pthread_attr(&attr_sp, sched_get_priority_max(SCHED_FIFO) - i - 3);
 
   // create task
   pthread_create(&executive_sp_frame_desc.pchild, &attr_sp, &sp_task_handler, NULL);
