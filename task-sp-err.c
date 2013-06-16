@@ -6,6 +6,7 @@
 #include <stdio.h>
 
 #include "executive.h"
+#include "busy.h"
 
 /* Lunghezza dell'iperperiodo */
 #define H_PERIOD_ 21
@@ -26,7 +27,7 @@ void sp_task_code();
 
 /**********************/
 
-void busy_calib();
+//void busy_calib();
 
 /**********************/
 
@@ -122,7 +123,7 @@ void task_destroy()
 
 /**********************************************************/
 
-unsigned int calib = UINT_MAX/32;
+/*unsigned int calib = UINT_MAX/32;
 
 void busy_wait(unsigned int millisec)
 {
@@ -151,7 +152,7 @@ void busy_calib()
   calib /= duration;
   calib *= 1000;
   }
-  
+  */
 /**********************************************************/
 
 /* Nota: nel codice dei task e' lecito chiamare sp_task_request() */
