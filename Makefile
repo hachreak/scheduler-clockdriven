@@ -2,6 +2,7 @@
 #FLAGS=-DMULTIPROC
 FLAGS=-Wall
 #SLACK_STEALING=-DSLACK_STEALING
+BUSYCALIB_ADVANCED=-DBUSYCALIB_ADVANCED
 
 all:  task-example task-err task-sp task-sp-err task-sp-err-wcet task-sp-busycalib
 
@@ -51,7 +52,8 @@ task-sp-err-wcet.o: task-sp-err-wcet.c
 	gcc ${FLAGS} -c task-sp-err-wcet.c -lpthread -lrt
 	
 busy.o: busy.c busy.h
-	gcc ${FLAGS} -c busy.c
+	gcc ${FLAGS} ${BUSYCALIB_ADVANCED} -c busy.c
+
 clean:
 	rm -f *.o *~ test-*
 

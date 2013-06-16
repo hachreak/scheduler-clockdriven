@@ -22,6 +22,8 @@ void busy_calib(){
   struct timeval after;
   unsigned int duration;
 
+#ifdef BUSYCALIB_ADVANCED
+
   int i = 0;
   do{
     gettimeofday(&before, NULL);
@@ -37,9 +39,21 @@ void busy_calib(){
     printf("[BUSY WAIT] [CALIBRATION] [%d nsec] %d\n", duration, calib);
   }while(duration < 1000000);
 
-  printf("[BUSY WAIT] [DURATION 1 msec ] [%d nsec]\n", duration);
-
   calib-=10000000;
+
+#else
+
+  gettimeofday(&before, NULL);
+  busy_wait(1);
+  gettimeofday(&after, NULL);
+
+  duration = (after.tv_sec - before.tv_sec) * 1000000;
+  duration += after.tv_usec;
+  duration -= before.tv_usec;
+
+#endif
+
+  printf("[BUSY WAIT] [DURATION 1 msec ] [%d nsec]\n", duration);
 
   calib /= duration;
   calib *= 1000;
