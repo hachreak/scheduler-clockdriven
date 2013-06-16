@@ -8,6 +8,7 @@
 unsigned int calib = UINT_MAX/32;
 
 void busy_wait(unsigned int millisec){
+  printf("[BUSY WAIT] [%d msec]\n", millisec);
   unsigned int i, j;
   volatile unsigned int value;
 

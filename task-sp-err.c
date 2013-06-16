@@ -162,6 +162,7 @@ int task_index = 0;
    {
    /* Custom Code */
      printf("hello task 0!\n");
+     busy_wait(EXECUTIVE_QUANT * 0.9);
    }
 
   void task1_code()
@@ -171,24 +172,28 @@ int task_index = 0;
      if(task_index == 1){ sp_task_request(); }
      task_index++;
      task_index = task_index%2;
+     busy_wait(EXECUTIVE_QUANT * 0.9);
    }
 
  void task2_code()
    {
    /* Custom Code */
      printf("hello task 2!\n");
+     busy_wait(EXECUTIVE_QUANT * 0.9);
    }
 
   void task3_code()
    {
    /* Custom Code */
      printf("hello task 3!\n");
+     busy_wait(EXECUTIVE_QUANT * 0.9);
    }
 
   void task4_code()
    {
    /* Custom Code */
      printf("hello task 4!\n");
+     busy_wait(EXECUTIVE_QUANT * 0.9);
    }
 
 
@@ -196,5 +201,5 @@ int task_index = 0;
    {
    /* Custom Code */
      printf("hello task sp!\n");
-     busy_wait(H_PERIOD / NUM_FRAMES * EXECUTIVE_QUANT * 5.5);
+     busy_wait(H_PERIOD / NUM_FRAMES * EXECUTIVE_QUANT * 7);
    }

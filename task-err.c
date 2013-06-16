@@ -161,31 +161,35 @@ void busy_calib()
    {
    /* Custom Code */
      printf("hello task 0!\n");
+     busy_wait(EXECUTIVE_QUANT * 2);
    }
 
   void task1_code()
    {
    /* Custom Code */
      printf("hello task 1!\n");
+     busy_wait(EXECUTIVE_QUANT * 2);
    }
 
  void task2_code()
    {
    /* Custom Code */
      printf("hello task 2!\n");
+     busy_wait(EXECUTIVE_QUANT * 2);
    }
 
   void task3_code()
    {
    /* Custom Code */
      printf("hello task 3!\n");
+     busy_wait(EXECUTIVE_QUANT * 4);
    }
 
   void task4_code()
    {
    /* Custom Code */
      printf("hello task 4!\n");
-     busy_wait(H_PERIOD / NUM_FRAMES * EXECUTIVE_QUANT * 2);
+     busy_wait(EXECUTIVE_QUANT * 2);
    }
 
 

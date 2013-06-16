@@ -96,7 +96,6 @@ bool sp_task_request(){
   // wakeup next frame
   printf("[SP] [READY] SP frame!\n");
   excstate_set_state(&executive_sp_frame_desc.excstate, READY);
-  //exit(1);
   return false;
 }
 

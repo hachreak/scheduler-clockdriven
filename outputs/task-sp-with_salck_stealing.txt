@@ -1,0 +1,2447 @@
+[BUSY WAIT] [1 msec]
+[BUSY WAIT] [CALIBRATION] [679325 nsec] 135217727
+[BUSY WAIT] [1 msec]
+[BUSY WAIT] [CALIBRATION] [708845 nsec] 136217727
+[BUSY WAIT] [1 msec]
+[BUSY WAIT] [CALIBRATION] [691961 nsec] 137217727
+[BUSY WAIT] [1 msec]
+[BUSY WAIT] [CALIBRATION] [731994 nsec] 138217727
+[BUSY WAIT] [1 msec]
+[BUSY WAIT] [CALIBRATION] [786766 nsec] 139217727
+[BUSY WAIT] [1 msec]
+[BUSY WAIT] [CALIBRATION] [765453 nsec] 140217727
+[BUSY WAIT] [1 msec]
+[BUSY WAIT] [CALIBRATION] [784144 nsec] 141217727
+[BUSY WAIT] [1 msec]
+[BUSY WAIT] [CALIBRATION] [715964 nsec] 142217727
+[BUSY WAIT] [1 msec]
+[BUSY WAIT] [CALIBRATION] [742952 nsec] 143217727
+[BUSY WAIT] [1 msec]
+[BUSY WAIT] [CALIBRATION] [739566 nsec] 144217727
+[BUSY WAIT] [1 msec]
+[BUSY WAIT] [CALIBRATION] [781317 nsec] 145217727
+[BUSY WAIT] [1 msec]
+[BUSY WAIT] [CALIBRATION] [755989 nsec] 146217727
+[BUSY WAIT] [1 msec]
+[BUSY WAIT] [CALIBRATION] [898317 nsec] 147217727
+[BUSY WAIT] [1 msec]
+[BUSY WAIT] [CALIBRATION] [1005190 nsec] 148217727
+[BUSY WAIT] [DURATION 1 msec ] [1005190 nsec]
+[INIT TIME] [QUANT 7.000000] [EXECUTIVE QUANT 100] [NANOSEC FRAME 700000000]
+[FRAME 0] [TASK INIT] priority 96
+[FRAME 0] [WAIT WAKE UP]
+[FRAME 1] [TASK INIT] priority 95
+[FRAME 1] [WAIT WAKE UP]
+[FRAME 2] [TASK INIT] priority 94
+[FRAME 2] [WAIT WAKE UP]
+[SP] [TASK INIT] priority 93
+[EXECUTIVE] [TASK INIT] priority 98
+
+------[FRAME 0]-------
+[FRAME 0] [PENDING]!
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409280 sec 591702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+
+------[FRAME 1]-------
+[FRAME 1] [PENDING]!
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [CHECK SP REQ] frame 1
+SLACK[2] = 0; CURMAX[21] DEADLINE[54]
+SLACK[0] = 1; CURMAX[28] DEADLINE[54]
+SLACK[1] = 2; CURMAX[35] DEADLINE[54]
+SLACK[2] = 0; CURMAX[42] DEADLINE[54]
+SLACK[0] = 1; CURMAX[49] DEADLINE[54]
+[SP] [WAIT] 5 frame
+[SP] [TASK SCHEDULED]
+[SP] [READY] SP frame!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409281 sec 291702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+
+------[FRAME 2]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 2] [PENDING]!
+[SP] [PENDING] sp thread!
+[SP] [WAKE UP] SP frame
+[SP] [EXEC SP TASK]
+hello task sp!
+[BUSY WAIT] [1400 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409281 sec 991702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+[SP] [WAIT] [4 FRAMES]
+
+------[FRAME 0]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 0] [PENDING]!
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409282 sec 691702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+[SP] [WAIT] [3 FRAMES]
+
+------[FRAME 1]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 1] [PENDING]!
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+[SP] [END]
+------[END FRAME]------ wait 700000000 nsec - next 1371409283 sec 391702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+[SP] [WAIT] [2 FRAMES]
+
+------[FRAME 2]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 2] [PENDING]!
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409284 sec 91702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+[SP] [WAIT] [1 FRAMES]
+
+------[FRAME 0]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 0] [PENDING]!
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409284 sec 791702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+[SP] [WAIT] [0 FRAMES]
+
+------[FRAME 1]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 1] [PENDING]!
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409285 sec 491702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+[SP] [WAIT] [-1 FRAMES]
+[SP] [DEADLINE CHECK]
+
+------[FRAME 2]-------
+[FRAME 2] [PENDING]!
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409286 sec 191702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+
+------[FRAME 0]-------
+[FRAME 0] [PENDING]!
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [CHECK SP REQ] frame 0
+SLACK[1] = 2; CURMAX[14] DEADLINE[47]
+SLACK[2] = 0; CURMAX[21] DEADLINE[47]
+SLACK[0] = 1; CURMAX[28] DEADLINE[47]
+SLACK[1] = 2; CURMAX[35] DEADLINE[47]
+SLACK[2] = 0; CURMAX[42] DEADLINE[47]
+[SP] [WAIT] 5 frame
+[SP] [TASK SCHEDULED]
+[SP] [READY] SP frame!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409286 sec 891702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+
+------[FRAME 1]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 1] [PENDING]!
+[SP] [PENDING] sp thread!
+[SP] [WAKE UP] SP frame
+[SP] [EXEC SP TASK]
+hello task sp!
+[BUSY WAIT] [1400 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409287 sec 591702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+[SP] [WAIT] [4 FRAMES]
+
+------[FRAME 2]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 2] [PENDING]!
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409288 sec 291702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+[SP] [WAIT] [3 FRAMES]
+
+------[FRAME 0]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 0] [PENDING]!
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+[SP] [END]
+------[END FRAME]------ wait 700000000 nsec - next 1371409288 sec 991702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+[SP] [WAIT] [2 FRAMES]
+
+------[FRAME 1]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 1] [PENDING]!
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409289 sec 691702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+[SP] [WAIT] [1 FRAMES]
+
+------[FRAME 2]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 2] [PENDING]!
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409290 sec 391702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+[SP] [WAIT] [0 FRAMES]
+
+------[FRAME 0]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 0] [PENDING]!
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409291 sec 91702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+[SP] [WAIT] [-1 FRAMES]
+[SP] [DEADLINE CHECK]
+
+------[FRAME 1]-------
+[FRAME 1] [PENDING]!
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409291 sec 791702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+
+------[FRAME 2]-------
+[FRAME 2] [PENDING]!
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [CHECK SP REQ] frame 2
+SLACK[0] = 1; CURMAX[28] DEADLINE[61]
+SLACK[1] = 2; CURMAX[35] DEADLINE[61]
+SLACK[2] = 0; CURMAX[42] DEADLINE[61]
+SLACK[0] = 1; CURMAX[49] DEADLINE[61]
+SLACK[1] = 2; CURMAX[56] DEADLINE[61]
+[SP] [WAIT] 5 frame
+[SP] [TASK SCHEDULED]
+[SP] [READY] SP frame!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409292 sec 491702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+
+------[FRAME 0]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 0] [PENDING]!
+[SP] [PENDING] sp thread!
+[SP] [WAKE UP] SP frame
+[SP] [EXEC SP TASK]
+hello task sp!
+[BUSY WAIT] [1400 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409293 sec 191702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+[SP] [WAIT] [4 FRAMES]
+
+------[FRAME 1]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 1] [PENDING]!
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409293 sec 891702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+[SP] [WAIT] [3 FRAMES]
+
+------[FRAME 2]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 2] [PENDING]!
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409294 sec 591702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+[SP] [WAIT] [2 FRAMES]
+
+------[FRAME 0]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 0] [PENDING]!
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+[SP] [END]
+------[END FRAME]------ wait 700000000 nsec - next 1371409295 sec 291702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+[SP] [WAIT] [1 FRAMES]
+
+------[FRAME 1]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 1] [PENDING]!
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409295 sec 991702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+[SP] [WAIT] [0 FRAMES]
+
+------[FRAME 2]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 2] [PENDING]!
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409296 sec 691702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+[SP] [WAIT] [-1 FRAMES]
+[SP] [DEADLINE CHECK]
+
+------[FRAME 0]-------
+[FRAME 0] [PENDING]!
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409297 sec 391702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+
+------[FRAME 1]-------
+[FRAME 1] [PENDING]!
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [CHECK SP REQ] frame 1
+SLACK[2] = 0; CURMAX[21] DEADLINE[54]
+SLACK[0] = 1; CURMAX[28] DEADLINE[54]
+SLACK[1] = 2; CURMAX[35] DEADLINE[54]
+SLACK[2] = 0; CURMAX[42] DEADLINE[54]
+SLACK[0] = 1; CURMAX[49] DEADLINE[54]
+[SP] [WAIT] 5 frame
+[SP] [TASK SCHEDULED]
+[SP] [READY] SP frame!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409298 sec 91702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+
+------[FRAME 2]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 2] [PENDING]!
+[SP] [PENDING] sp thread!
+[SP] [WAKE UP] SP frame
+[SP] [EXEC SP TASK]
+hello task sp!
+[BUSY WAIT] [1400 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409298 sec 791702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+[SP] [WAIT] [4 FRAMES]
+
+------[FRAME 0]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 0] [PENDING]!
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409299 sec 491702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+[SP] [WAIT] [3 FRAMES]
+
+------[FRAME 1]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 1] [PENDING]!
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+[SP] [END]
+------[END FRAME]------ wait 700000000 nsec - next 1371409300 sec 191702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+[SP] [WAIT] [2 FRAMES]
+
+------[FRAME 2]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 2] [PENDING]!
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409300 sec 891702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+[SP] [WAIT] [1 FRAMES]
+
+------[FRAME 0]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 0] [PENDING]!
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409301 sec 591702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+[SP] [WAIT] [0 FRAMES]
+
+------[FRAME 1]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 1] [PENDING]!
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+[SP] [SET PRIORITY 93] [LOW]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409302 sec 291702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+[SP] [WAIT] [-1 FRAMES]
+[SP] [DEADLINE CHECK]
+
+------[FRAME 2]-------
+[FRAME 2] [PENDING]!
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409302 sec 991702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+
+------[FRAME 0]-------
+[FRAME 0] [PENDING]!
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [CHECK SP REQ] frame 0
+SLACK[1] = 2; CURMAX[14] DEADLINE[47]
+SLACK[2] = 0; CURMAX[21] DEADLINE[47]
+SLACK[0] = 1; CURMAX[28] DEADLINE[47]
+SLACK[1] = 2; CURMAX[35] DEADLINE[47]
+SLACK[2] = 0; CURMAX[42] DEADLINE[47]
+[SP] [WAIT] 5 frame
+[SP] [TASK SCHEDULED]
+[SP] [READY] SP frame!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409303 sec 691702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+
+------[FRAME 1]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 1] [PENDING]!
+[SP] [PENDING] sp thread!
+[SP] [WAKE UP] SP frame
+[SP] [EXEC SP TASK]
+hello task sp!
+[BUSY WAIT] [1400 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409304 sec 391702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+[SP] [WAIT] [4 FRAMES]
+
+------[FRAME 2]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 2] [PENDING]!
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409305 sec 91702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+[SP] [WAIT] [3 FRAMES]
+
+------[FRAME 0]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 0] [PENDING]!
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+[SP] [END]
+------[END FRAME]------ wait 700000000 nsec - next 1371409305 sec 791702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+[SP] [WAIT] [2 FRAMES]
+
+------[FRAME 1]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 1] [PENDING]!
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409306 sec 491702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+[SP] [WAIT] [1 FRAMES]
+
+------[FRAME 2]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 2] [PENDING]!
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409307 sec 191702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+[SP] [WAIT] [0 FRAMES]
+
+------[FRAME 0]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 0] [PENDING]!
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409307 sec 891702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+[SP] [WAIT] [-1 FRAMES]
+[SP] [DEADLINE CHECK]
+
+------[FRAME 1]-------
+[FRAME 1] [PENDING]!
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409308 sec 591702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+
+------[FRAME 2]-------
+[FRAME 2] [PENDING]!
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [CHECK SP REQ] frame 2
+SLACK[0] = 1; CURMAX[28] DEADLINE[61]
+SLACK[1] = 2; CURMAX[35] DEADLINE[61]
+SLACK[2] = 0; CURMAX[42] DEADLINE[61]
+SLACK[0] = 1; CURMAX[49] DEADLINE[61]
+SLACK[1] = 2; CURMAX[56] DEADLINE[61]
+[SP] [WAIT] 5 frame
+[SP] [TASK SCHEDULED]
+[SP] [READY] SP frame!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409309 sec 291702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+
+------[FRAME 0]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 0] [PENDING]!
+[SP] [PENDING] sp thread!
+[SP] [WAKE UP] SP frame
+[SP] [EXEC SP TASK]
+hello task sp!
+[BUSY WAIT] [1400 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409309 sec 991702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+[SP] [WAIT] [4 FRAMES]
+
+------[FRAME 1]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 1] [PENDING]!
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409310 sec 691702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+[SP] [WAIT] [3 FRAMES]
+
+------[FRAME 2]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 2] [PENDING]!
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+[SP] [END]
+------[END FRAME]------ wait 700000000 nsec - next 1371409311 sec 391702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+[SP] [WAIT] [2 FRAMES]
+
+------[FRAME 0]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 0] [PENDING]!
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409312 sec 91702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+[SP] [WAIT] [1 FRAMES]
+
+------[FRAME 1]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 1] [PENDING]!
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409312 sec 791702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+[SP] [WAIT] [0 FRAMES]
+
+------[FRAME 2]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 2] [PENDING]!
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409313 sec 491702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+[SP] [WAIT] [-1 FRAMES]
+[SP] [DEADLINE CHECK]
+
+------[FRAME 0]-------
+[FRAME 0] [PENDING]!
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409314 sec 191702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+
+------[FRAME 1]-------
+[FRAME 1] [PENDING]!
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [CHECK SP REQ] frame 1
+SLACK[2] = 0; CURMAX[21] DEADLINE[54]
+SLACK[0] = 1; CURMAX[28] DEADLINE[54]
+SLACK[1] = 2; CURMAX[35] DEADLINE[54]
+SLACK[2] = 0; CURMAX[42] DEADLINE[54]
+SLACK[0] = 1; CURMAX[49] DEADLINE[54]
+[SP] [WAIT] 5 frame
+[SP] [TASK SCHEDULED]
+[SP] [READY] SP frame!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409314 sec 891702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+
+------[FRAME 2]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 2] [PENDING]!
+[SP] [PENDING] sp thread!
+[SP] [WAKE UP] SP frame
+[SP] [EXEC SP TASK]
+hello task sp!
+[BUSY WAIT] [1400 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409315 sec 591702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+[SP] [WAIT] [4 FRAMES]
+
+------[FRAME 0]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 0] [PENDING]!
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409316 sec 291702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+[SP] [WAIT] [3 FRAMES]
+
+------[FRAME 1]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 1] [PENDING]!
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+[SP] [END]
+------[END FRAME]------ wait 700000000 nsec - next 1371409316 sec 991702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+[SP] [WAIT] [2 FRAMES]
+
+------[FRAME 2]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 2] [PENDING]!
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409317 sec 691702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+[SP] [WAIT] [1 FRAMES]
+
+------[FRAME 0]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 0] [PENDING]!
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409318 sec 391702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+[SP] [WAIT] [0 FRAMES]
+
+------[FRAME 1]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 1] [PENDING]!
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409319 sec 91702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+[SP] [WAIT] [-1 FRAMES]
+[SP] [DEADLINE CHECK]
+
+------[FRAME 2]-------
+[FRAME 2] [PENDING]!
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409319 sec 791702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+
+------[FRAME 0]-------
+[FRAME 0] [PENDING]!
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [CHECK SP REQ] frame 0
+SLACK[1] = 2; CURMAX[14] DEADLINE[47]
+SLACK[2] = 0; CURMAX[21] DEADLINE[47]
+SLACK[0] = 1; CURMAX[28] DEADLINE[47]
+SLACK[1] = 2; CURMAX[35] DEADLINE[47]
+SLACK[2] = 0; CURMAX[42] DEADLINE[47]
+[SP] [WAIT] 5 frame
+[SP] [TASK SCHEDULED]
+[SP] [READY] SP frame!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409320 sec 491702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+
+------[FRAME 1]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 1] [PENDING]!
+[SP] [PENDING] sp thread!
+[SP] [WAKE UP] SP frame
+[SP] [EXEC SP TASK]
+hello task sp!
+[BUSY WAIT] [1400 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409321 sec 191702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+[SP] [WAIT] [4 FRAMES]
+
+------[FRAME 2]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 2] [PENDING]!
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409321 sec 891702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+[SP] [WAIT] [3 FRAMES]
+
+------[FRAME 0]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 0] [PENDING]!
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+[SP] [END]
+------[END FRAME]------ wait 700000000 nsec - next 1371409322 sec 591702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+[SP] [WAIT] [2 FRAMES]
+
+------[FRAME 1]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 1] [PENDING]!
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409323 sec 291702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+[SP] [WAIT] [1 FRAMES]
+
+------[FRAME 2]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 2] [PENDING]!
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409323 sec 991702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+[SP] [WAIT] [0 FRAMES]
+
+------[FRAME 0]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 0] [PENDING]!
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409324 sec 691702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+[SP] [WAIT] [-1 FRAMES]
+[SP] [DEADLINE CHECK]
+
+------[FRAME 1]-------
+[FRAME 1] [PENDING]!
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409325 sec 391702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+
+------[FRAME 2]-------
+[FRAME 2] [PENDING]!
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [CHECK SP REQ] frame 2
+SLACK[0] = 1; CURMAX[28] DEADLINE[61]
+SLACK[1] = 2; CURMAX[35] DEADLINE[61]
+SLACK[2] = 0; CURMAX[42] DEADLINE[61]
+SLACK[0] = 1; CURMAX[49] DEADLINE[61]
+SLACK[1] = 2; CURMAX[56] DEADLINE[61]
+[SP] [WAIT] 5 frame
+[SP] [TASK SCHEDULED]
+[SP] [READY] SP frame!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409326 sec 91702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+
+------[FRAME 0]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 0] [PENDING]!
+[SP] [PENDING] sp thread!
+[SP] [WAKE UP] SP frame
+[SP] [EXEC SP TASK]
+hello task sp!
+[BUSY WAIT] [1400 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409326 sec 791702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+[SP] [WAIT] [4 FRAMES]
+
+------[FRAME 1]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 1] [PENDING]!
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409327 sec 491702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+[SP] [WAIT] [3 FRAMES]
+
+------[FRAME 2]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 2] [PENDING]!
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+[SP] [END]
+------[END FRAME]------ wait 700000000 nsec - next 1371409328 sec 191702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+[SP] [WAIT] [2 FRAMES]
+
+------[FRAME 0]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 0] [PENDING]!
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409328 sec 891702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+[SP] [WAIT] [1 FRAMES]
+
+------[FRAME 1]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 1] [PENDING]!
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409329 sec 591702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+[SP] [WAIT] [0 FRAMES]
+
+------[FRAME 2]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 2] [PENDING]!
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409330 sec 291702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+[SP] [WAIT] [-1 FRAMES]
+[SP] [DEADLINE CHECK]
+
+------[FRAME 0]-------
+[FRAME 0] [PENDING]!
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409330 sec 991702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+
+------[FRAME 1]-------
+[FRAME 1] [PENDING]!
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [CHECK SP REQ] frame 1
+SLACK[2] = 0; CURMAX[21] DEADLINE[54]
+SLACK[0] = 1; CURMAX[28] DEADLINE[54]
+SLACK[1] = 2; CURMAX[35] DEADLINE[54]
+SLACK[2] = 0; CURMAX[42] DEADLINE[54]
+SLACK[0] = 1; CURMAX[49] DEADLINE[54]
+[SP] [WAIT] 5 frame
+[SP] [TASK SCHEDULED]
+[SP] [READY] SP frame!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409331 sec 691702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+
+------[FRAME 2]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 2] [PENDING]!
+[SP] [PENDING] sp thread!
+[SP] [WAKE UP] SP frame
+[SP] [EXEC SP TASK]
+hello task sp!
+[BUSY WAIT] [1400 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409332 sec 391702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+[SP] [WAIT] [4 FRAMES]
+
+------[FRAME 0]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 0] [PENDING]!
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409333 sec 91702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+[SP] [WAIT] [3 FRAMES]
+
+------[FRAME 1]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 1] [PENDING]!
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+[SP] [END]
+------[END FRAME]------ wait 700000000 nsec - next 1371409333 sec 791702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+[SP] [WAIT] [2 FRAMES]
+
+------[FRAME 2]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 2] [PENDING]!
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409334 sec 491702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+[SP] [WAIT] [1 FRAMES]
+
+------[FRAME 0]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 0] [PENDING]!
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409335 sec 191702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+[SP] [WAIT] [0 FRAMES]
+
+------[FRAME 1]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 1] [PENDING]!
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409335 sec 891702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+[SP] [WAIT] [-1 FRAMES]
+[SP] [DEADLINE CHECK]
+
+------[FRAME 2]-------
+[FRAME 2] [PENDING]!
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409336 sec 591702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+
+------[FRAME 0]-------
+[FRAME 0] [PENDING]!
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [CHECK SP REQ] frame 0
+SLACK[1] = 2; CURMAX[14] DEADLINE[47]
+SLACK[2] = 0; CURMAX[21] DEADLINE[47]
+SLACK[0] = 1; CURMAX[28] DEADLINE[47]
+SLACK[1] = 2; CURMAX[35] DEADLINE[47]
+SLACK[2] = 0; CURMAX[42] DEADLINE[47]
+[SP] [WAIT] 5 frame
+[SP] [TASK SCHEDULED]
+[SP] [READY] SP frame!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409337 sec 291702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+
+------[FRAME 1]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 1] [PENDING]!
+[SP] [PENDING] sp thread!
+[SP] [WAKE UP] SP frame
+[SP] [EXEC SP TASK]
+hello task sp!
+[BUSY WAIT] [1400 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409337 sec 991702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+[SP] [WAIT] [4 FRAMES]
+
+------[FRAME 2]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 2] [PENDING]!
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+[SP] [END]
+------[END FRAME]------ wait 700000000 nsec - next 1371409338 sec 691702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+[SP] [WAIT] [3 FRAMES]
+
+------[FRAME 0]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 0] [PENDING]!
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409339 sec 391702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+[SP] [WAIT] [2 FRAMES]
+
+------[FRAME 1]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 1] [PENDING]!
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409340 sec 91702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+[SP] [WAIT] [1 FRAMES]
+
+------[FRAME 2]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 2] [PENDING]!
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409340 sec 791702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+[SP] [WAIT] [0 FRAMES]
+
+------[FRAME 0]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 0] [PENDING]!
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409341 sec 491702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+[SP] [WAIT] [-1 FRAMES]
+[SP] [DEADLINE CHECK]
+
+------[FRAME 1]-------
+[FRAME 1] [PENDING]!
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409342 sec 191702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+
+------[FRAME 2]-------
+[FRAME 2] [PENDING]!
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [CHECK SP REQ] frame 2
+SLACK[0] = 1; CURMAX[28] DEADLINE[61]
+SLACK[1] = 2; CURMAX[35] DEADLINE[61]
+SLACK[2] = 0; CURMAX[42] DEADLINE[61]
+SLACK[0] = 1; CURMAX[49] DEADLINE[61]
+SLACK[1] = 2; CURMAX[56] DEADLINE[61]
+[SP] [WAIT] 5 frame
+[SP] [TASK SCHEDULED]
+[SP] [READY] SP frame!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409342 sec 891702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+
+------[FRAME 0]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 0] [PENDING]!
+[SP] [PENDING] sp thread!
+[SP] [WAKE UP] SP frame
+[SP] [EXEC SP TASK]
+hello task sp!
+[BUSY WAIT] [1400 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409343 sec 591702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+[SP] [WAIT] [4 FRAMES]
+
+------[FRAME 1]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 1] [PENDING]!
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+[SP] [END]
+------[END FRAME]------ wait 700000000 nsec - next 1371409344 sec 291702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+[SP] [WAIT] [3 FRAMES]
+
+------[FRAME 2]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 2] [PENDING]!
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409344 sec 991702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+[SP] [WAIT] [2 FRAMES]
+
+------[FRAME 0]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 0] [PENDING]!
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409345 sec 691702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+[SP] [WAIT] [1 FRAMES]
+
+------[FRAME 1]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 1] [PENDING]!
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409346 sec 391702000 nsec
+
+[FRAME 1] [DEADLINE CHECK]
+[SP] [WAIT] [0 FRAMES]
+
+------[FRAME 2]-------
+[SP] [SET PRIORITY 97] [HIGH]
+[FRAME 2] [PENDING]!
+[FRAME 2] [WAKE UP]
+[FRAME 2] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [ALREADY SCHEDULED] can't schedule new sporadic job
+[BUSY WAIT] [90 msec]
+[SP] [SET PRIORITY 93] [LOW]
+[FRAME 2] [EXECUTE 1] [END]
+[FRAME 2] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 2] [END]
+[FRAME 2] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 3] [END]
+[FRAME 2] [EXECUTE 4] [INIT]
+hello task 4!
+[BUSY WAIT] [90 msec]
+[FRAME 2] [EXECUTE 4] [END]
+[FRAME 2] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409347 sec 91702000 nsec
+
+[FRAME 2] [DEADLINE CHECK]
+[SP] [WAIT] [-1 FRAMES]
+[SP] [DEADLINE CHECK]
+
+------[FRAME 0]-------
+[FRAME 0] [PENDING]!
+[FRAME 0] [WAKE UP]
+[FRAME 0] [EXECUTE 0] [INIT]
+hello task 0!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 0] [END]
+[FRAME 0] [EXECUTE 1] [INIT]
+hello task 1!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 1] [END]
+[FRAME 0] [EXECUTE 3] [INIT]
+hello task 3!
+[BUSY WAIT] [90 msec]
+[FRAME 0] [EXECUTE 3] [END]
+[FRAME 0] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409347 sec 791702000 nsec
+
+[FRAME 0] [DEADLINE CHECK]
+
+------[FRAME 1]-------
+[FRAME 1] [PENDING]!
+[FRAME 1] [WAKE UP]
+[FRAME 1] [EXECUTE 1] [INIT]
+hello task 1!
+[SP] [CHECK SP REQ] frame 1
+SLACK[2] = 0; CURMAX[21] DEADLINE[54]
+SLACK[0] = 1; CURMAX[28] DEADLINE[54]
+SLACK[1] = 2; CURMAX[35] DEADLINE[54]
+SLACK[2] = 0; CURMAX[42] DEADLINE[54]
+SLACK[0] = 1; CURMAX[49] DEADLINE[54]
+[SP] [WAIT] 5 frame
+[SP] [TASK SCHEDULED]
+[SP] [READY] SP frame!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 1] [END]
+[FRAME 1] [EXECUTE 2] [INIT]
+hello task 2!
+[BUSY WAIT] [90 msec]
+[FRAME 1] [EXECUTE 2] [END]
+[FRAME 1] [WAIT WAKE UP]
+------[END FRAME]------ wait 700000000 nsec - next 1371409348 sec 491702000 nsec
+
+[FRAME 1] [DEAD
