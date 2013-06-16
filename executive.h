@@ -17,9 +17,9 @@ typedef struct{
 
 //typedef enum frame_state{ IDLE, WORKING, PENDING } frame_state;
 
+/**
+ * Executive initialization
+ */
 void executive_init();
-void executive_wait_next_frame();
-void *executive();
-void *sp_task_handler();
 
 #endif

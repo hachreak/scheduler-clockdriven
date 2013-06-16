@@ -1,0 +1,47 @@
+# ___[ Scelte progettuali ]___
+
+# MAIN
+Per pura convenzione e praticita', si e' deciso di separare dall'executive la funzione di main. La funzione di main si occupa di inizializzare l'executive e di lanciarlo di conseguenza.
+
+# EXECUTIVE_QUANT
+Per una scelta progettuale, si e' definito il quanto di tempo EXECUTIVE_QUANT dentro una interfaccia di executive.
+Dentro ogni task-[name].c si e' inclusa l'interfaccia dell'executive puramente per poter generare una opportuno tempo di busywait che fosse indipendente da quanto effettivamente fosse largo un quanto di tempo.
+Sarebbe bastato includere dentro l'interfaccia task.h questa costante per eliminare la dipendenza. Non lo si e' fatto per mantenere, come richiesto, inalterata l'interfaccia task.h.
+Questo ci ha permesso di poterci non preoccupare di quanto sia effettivamente largo un quanto di tempo. Tutto si sarebbe adattato di conseguenza.
+
+# SLACK_STEALING
+Definendo nel Makefile la costante SLACK_STEALING e' possibile, di conseguenza, attivare una gestione del task sporadico con una politica di slack-stealing.
+Se non viene definita, viene utilizzata la gestione di default.
+
+# BUSYCALIB_ADVANCED
+Ai fini didattici, si e' cercato un metodo per calibrare una busywait in modo piu' fine.
+Per praticità si e' deciso di separare la funzionalità di busywait in un opportuno busy.h e busy.c, utilizzabili dai task set per simulare una fase di elaborazione.
+Definendo nel Makefile la costante BUSYCALIB_ADVANCED e' possibile attivare una calibrazione piu' avanzata della busycalib.
+Da una analisi della busycalib presente come esempio nel file task-example.c, si evince che nei pc su cui si stati effettuati molti dei test, il risultato era che una ipotetica busywait di 1ms corrispondesse ad un valore tra i 600000 nsec e i 700000 nsec.
+La versione "advanced" cerca di correggere questo comportamento agendo di conseguenza sul valore della variabile "calib".
+
+# FRAME_HANDLER_SAME_PRIORITY
+Si e' scelto di dare la possibilita' di scegliere a livello di compilazione tra due alternative:
+ - set della stessa priorita' per ogni frame handler: set della costante FRAME_HANDLER_SAME_PRIORITY dentro il Makefile
+ - set di una priorita' a scalare per ogni frame: non viene settata nessuna costatnte FRAME_HANDLER_SAME_PRIORITY dentro il Makefile
+Ai fini della esercitazione, tutte e due le scelte portano al medesimo risultato. L'attivazione o meno di questa funzionalita' puo' influire sul comportamento dello scheduler in caso di una deadline miss per un frame (quale frame handler dare priorita' di esecuzione). Siccome l'executive esce in caso di deadline miss, non si avverte nessuna differenza.
+
+# EXCSTATE
+Siccome che spesso si fa uso di variabili condivise e di queste e' necessario mantenere un adeguato controllo si e' sviluppato una funzionalita' a parte dal nome excstate.
+Questa libreria permette una gestione semplificata all'interno dell'executive.
+
+
+
+# ___[ Output di esempio ]___
+Per comodita', si e' salvato dentro la cartella outputs una serie di output derivate da esecuzione dei vari task set in molteplici condizioni, considerando i casi di slack stealing attiva e disattiva.
+
+
+
+# ___[ Task set implementati ]___
+
+ - task-example.c      : task set di soli task periodici
+ - task-err.c          : task set di soli task periodici con una deadline miss di uno dei task
+ - task-sp.c           : task set di task periodici + task sporadico 
+ - task-sp-err.c       : task set di task periodici + task sporadico con deadline miss del task sporadico
+ - task-sp-err-wcet.c  : task set di task periodici + task sporadico con non superamento del test statico sulla deadline del task sporadico
+

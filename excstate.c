@@ -21,7 +21,6 @@ void excstate_set_state(excstate *b, int state){
 int excstate_get_state(excstate *b){
   pthread_mutex_lock(&b->mutex);
   int state = b->count;
-  //pthread_cond_signal( &b->cond );
   pthread_mutex_unlock(&b->mutex);
   return state;
 }
