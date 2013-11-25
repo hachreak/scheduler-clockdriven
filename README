@@ -17,6 +17,10 @@
  *
  */
 
+# ___[ Description ]______
+
+Scheduler real time that allows to put in execution a set of periodic tasks according to a clock driven approach, using a static scheduling algorithm that provides the system with a schedule feasible, if it exists, before the system goes running.
+
 # ___[ Design choices ]___
 
 # MAIN
