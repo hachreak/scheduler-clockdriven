@@ -1,34 +1,53 @@
-# ___[ Scelte progettuali ]___
+/**
+ * Copyright (C) 2013 Leonardo Rossi <leonardo.rossi@studenti.unipr.it>
+ *
+ * This source code is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This source code is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this source code; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *
+ */
+
+# ___[ Design choices ]___
 
 # MAIN
-Per pura convenzione e praticita', si e' deciso di separare dall'executive la funzione di main. La funzione di main si occupa di inizializzare l'executive e di lanciarlo di conseguenza.
+For pure convention and practicality, it was decided to separate from the executive function main. The main function of the executive is responsible to initialize and run it accordingly.
 
 # EXECUTIVE_QUANT
-Per una scelta progettuale, si e' definito il quanto di tempo EXECUTIVE_QUANT dentro una interfaccia di executive.
-Dentro ogni task-[name].c si e' inclusa l'interfaccia dell'executive puramente per poter generare una opportuno tempo di busywait che fosse indipendente da quanto effettivamente fosse largo un quanto di tempo.
-Sarebbe bastato includere dentro l'interfaccia task.h questa costante per eliminare la dipendenza. Non lo si e' fatto per mantenere, come richiesto, inalterata l'interfaccia task.h.
-Questo ci ha permesso di poterci non preoccupare di quanto sia effettivamente largo un quanto di tempo. Tutto si sarebbe adattato di conseguenza.
+For a design choice, it is defined the quantum of time EXECUTIVE_QUANT inside interface of the executive.
+Within each task-[name].c was included the executive interface only for generate an appropriate time busywait that was independent from what actually was a large quantum of time.
+Would be enough to incorporate into the interface task.h this constant to eliminate the dependency. You have not done to maintain, as required, the interface unchanged task.h.
+This has allowed us to introduce ourselves not to worry about what is actually a large quantum of time. Everything would be adjusted accordingly.
 
 # SLACK_STEALING
-Definendo nel Makefile la costante SLACK_STEALING e' possibile, di conseguenza, attivare una gestione del task sporadico con una politica di slack-stealing.
-Se non viene definita, viene utilizzata la gestione di default.
+Defining in the Makefile the constant SLACK_STEALING is possible, therefore, to activate a management task sporadic with a policy of slack-stealing.
+If not defined, management is used by default.
 
 # BUSYCALIB_ADVANCED
-Ai fini didattici, si e' cercato un metodo per calibrare una busywait in modo piu' fine.
-Per praticità si e' deciso di separare la funzionalità di busywait in un opportuno busy.h e busy.c, utilizzabili dai task set per simulare una fase di elaborazione.
-Definendo nel Makefile la costante BUSYCALIB_ADVANCED e' possibile attivare una calibrazione piu' avanzata della busycalib.
-Da una analisi della busycalib presente come esempio nel file task-example.c, si evince che nei pc su cui si stati effettuati molti dei test, il risultato era che una ipotetica busywait di 1ms corrispondesse ad un valore tra i 600000 nsec e i 700000 nsec.
-La versione "advanced" cerca di correggere questo comportamento agendo di conseguenza sul valore della variabile "calib".
+
+For educational purposes, we tried a method for calibrating a busywait so finer.
+For practical reasons it was decided to separate the functionality of busywait in an appropriate busy.he busy.c, used by the task sets to simulate processing.
+By defining the constant BUSYCALIB_ADVANCED in the Makefile, you can enable a more advanced calibration busycalib.
+From an analysis of the busycalib this as an example in the file example.c task, it appears that the PC on which they were made many of the test, the result was that a hypothetical busywait 1ms corresponded to a value between 600000 nsec and 700000 nsec .
 
 # FRAME_HANDLER_SAME_PRIORITY
-Si e' scelto di dare la possibilita' di scegliere a livello di compilazione tra due alternative:
- - set della stessa priorita' per ogni frame handler: set della costante FRAME_HANDLER_SAME_PRIORITY dentro il Makefile
- - set di una priorita' a scalare per ogni frame: non viene settata nessuna costatnte FRAME_HANDLER_SAME_PRIORITY dentro il Makefile
-Ai fini della esercitazione, tutte e due le scelte portano al medesimo risultato. L'attivazione o meno di questa funzionalita' puo' influire sul comportamento dello scheduler in caso di una deadline miss per un frame (quale frame handler dare priorita' di esecuzione). Siccome l'executive esce in caso di deadline miss, non si avverte nessuna differenza.
+It was decided to give the opportunity to choose at compile time between two alternatives:
+  - Set the same priority for each frame handler: set the constant FRAME_HANDLER_SAME_PRIORITY in the Makefile
+  - Set a priority for each frame to climb: do not set any constant FRAME_HANDLER_SAME_PRIORITY in the Makefile
+For the purposes of the exercise, both choices lead to the same result. The activation of this feature or not can affect the behavior of the scheduler in the event of a deadline miss for a frame (frame handler which give priority to execution). As the executive exits in case of deadline miss, you do not feel any difference.
 
 # EXCSTATE
-Siccome che spesso si fa uso di variabili condivise e di queste e' necessario mantenere un adeguato controllo si e' sviluppato una funzionalita' a parte dal nome excstate.
-Questa libreria permette una gestione semplificata all'interno dell'executive.
+Because that is often made use of shared variables and of these it is necessary to maintain proper control, we developed a separate feature from the name excstate.
+This library allows simplified management within the executive.
 
 
 
@@ -39,9 +58,9 @@ Per comodita', si e' salvato dentro la cartella outputs una serie di output deri
 
 # ___[ Task set implementati ]___
 
- - task-example.c      : task set di soli task periodici
- - task-err.c          : task set di soli task periodici con una deadline miss di uno dei task
- - task-sp.c           : task set di task periodici + task sporadico 
- - task-sp-err.c       : task set di task periodici + task sporadico con deadline miss del task sporadico
- - task-sp-err-wcet.c  : task set di task periodici + task sporadico con non superamento del test statico sulla deadline del task sporadico
+ - task-example.c      : task set of only periodic task
+ - task-err.c          : task set only periodic tasks with a deadline miss of a task
+ - task-sp.c           : task set of periodic task + sporadic task
+ - task-sp-err.c       : task set of periodic task + sporadic task with deadline miss on sporadic task
+ - task-sp-err-wcet.c  : task set of periodic task + sporadic task that does not exceed the static test on the deadline
 
